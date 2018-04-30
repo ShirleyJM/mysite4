@@ -19,8 +19,9 @@
 		<div id="wrapper">
 			<div id="content">
 				<div id="guestbook">
-					
-					<form action="" method="">
+					<!-- 이름, 비밀번호 가지고 감. -->
+					<form action="${pageContext.request.contextPath}/guestbook/add" method="post">
+						
 						
 						<table>
 							<tr>
@@ -36,23 +37,27 @@
 						</table>
 					</form>
 					<ul>
+					<c:forEach items="${list}" var="vo">
+					 
+					
 						<li>
 							<table>
 								<tr>
-									<td>[1]</td>
-									<td>황일영</td>
-									<td>2017-07-20 11:22:30</td>
-									<td><a href="">삭제</a></td>
+									<td>${vo.no}</td>
+									<td>${vo.name}</td>
+									<td>${vo.reg_date}</td>
+									<td><a href="${pageContext.request.contextPath}/guestbook/deleteform?no=${vo.no}">삭제</a></td> 
 								</tr>
 								<tr>
 									<td colspan=4>
-									안녕하세요. ^^;<br>
-									하하하하	
+									${vo.content}<br>
+								
 									</td>
 								</tr>
 							</table>
 							<br>
 						</li>
+						</c:forEach>
 					</ul>
 					
 				</div><!-- /guestbook -->

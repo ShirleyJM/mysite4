@@ -1,6 +1,7 @@
 package com.javaex.controller;
 
 import javax.servlet.http.HttpSession;
+import javax.xml.ws.RequestWrapper;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -9,6 +10,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.javaex.service.UserService;
 import com.javaex.vo.UserVo;
@@ -85,4 +87,13 @@ public class UserController {
 		return "main/index";
 	}
 	
+@ResponseBody
+@RequestMapping(value="/emailcheck",method=RequestMethod.POST)
+public boolean exists(@RequestParam("email") String email){
+	System.out.println("ajax 이메일 체크" + email);
+	boolean isExists = true;
+	
+	return isExists;
+	
+}
 }

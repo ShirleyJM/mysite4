@@ -14,25 +14,19 @@
 		
 		<c:import url="../include/navigation.jsp"></c:import>
 		
-		<div id="navigation">
-			<ul>
-				<li><a href="">황일영</a></li>
-				<li><a href="">방명록</a></li>
-				<li><a href="">게시판</a></li>
-			</ul>
-		</div> <!-- /navigation -->
-		
+	
 		<div id="wrapper">
 			<div id="content">
 				<div id="guestbook" class="delete-form">
 					
-					<form method="" action="">
+					<form method="Get" action="${pageContext.request.contextPath}/guestbook/delete">
 						
 						<label>비밀번호</label>
 						<input type="password" name="password">
+						<input type="hidden" name="no" value="${param.no}">
 						<input type="submit" value="확인">
 					</form>
-					<a href="">방명록 리스트</a>
+					<a href="${pageContext.request.contextPath}/guestbook/list">방명록 리스트</a>
 					
 				</div>
 			</div><!-- /content -->
