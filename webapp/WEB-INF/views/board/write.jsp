@@ -14,7 +14,7 @@
 	<c:import url="../include/navigation.jsp"></c:import>
 		<div id="content">
 			<div id="board">
-				<form class="board-form" method="post" action="/mysite/board">
+				<form class="board-form" method="post" action="${pageContext.request.contextPath}/board/listAll">
 					<input type = "hidden" name = "a" value="write">
 					<table class="tbl-ex">
 						<tr>
@@ -32,7 +32,7 @@
 						</tr>
 					</table>
 					<div class="bottom">
-						<a href="/mysite/board">취소</a>
+						<a href="${pageContext.request.contextPath}/board/listAll">취소</a>
 						<input type="submit" value="등록">
 					</div>
 				</form>				

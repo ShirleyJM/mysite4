@@ -19,11 +19,10 @@
 			<div id="content">
 				<div id="guestbook" class="delete-form">
 					
-					<form method="Get" action="${pageContext.request.contextPath}/guestbook/delete">
-						
+					<form method="post" action="${pageContext.request.contextPath}/guestbook/delete?no=${param.no}">
+						<%-- <input type="hidden" name="no" value="${param.no}"> --%>
 						<label>비밀번호</label>
 						<input type="password" name="password">
-						<input type="hidden" name="no" value="${param.no}">
 						<input type="submit" value="확인">
 					</form>
 					<a href="${pageContext.request.contextPath}/guestbook/list">방명록 리스트</a>

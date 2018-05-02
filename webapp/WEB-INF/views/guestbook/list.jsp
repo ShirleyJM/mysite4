@@ -37,9 +37,9 @@
 						</table>
 					</form>
 					<ul>
-					<c:forEach items="${list}" var="vo">
-					 
 					
+					<c:forEach items="${list}" var="vo">
+
 						<li>
 							<table>
 								<tr>

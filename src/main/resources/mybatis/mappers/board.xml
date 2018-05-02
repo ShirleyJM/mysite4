@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="board">
+
+<select id="selectList" resultType="com.javaex.vo.BoardVo">
+<![CDATA[
+	select no,title,hit,reg_date,user_no
+	from board
+]]>
+</select>
+
+<insert id="write" parameterType="com.javaex.vo.BoardVo">
+<![CDATA[
+	insert into board
+	values (seq_board_no.nextval,#{title},#{hit},#{reg_date},#{user_no})
+]]>
+</insert>
+ 
+<update id="modify" parameterType="com.javaex.vo.BoardVo">
+<![CDATA[
+	update  
+	set
+	
+]]>
+</update>
+
+<delete id="delete" parameterType="com.javaex.vo.BoardVo">
+<![CDATA[
+	delete from board
+	where no=#{no} and password=#{password}
+]]>
+</delete>
+
+</mapper>

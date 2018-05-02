@@ -9,6 +9,15 @@
 	]]>
 </insert>
 
+<insert id="insert2" parameterType="com.javaex.vo.GuestbookVo">
+<selectKey keyProperty="no" resultType="String" order="BEFORE">
+	select seq_guestbook_no.nextval from dual
+</selectKey>
+	<![CDATA[
+		insert into guestbook3
+		values (#{no},#{name},#{password},#{content},sysdate)
+	]]>
+</insert>
 
 <delete id="delete" parameterType="com.javaex.vo.GuestbookVo">
 	<![CDATA[
@@ -24,10 +33,15 @@
 	from guestbook3
 
 ]]>
-
-
 </select>
 
+<select id="selectGuestBook" parameterType="int" resultType="com.javaex.vo.GuestbookVo">
+<![CDATA[
+	select no,name,content,reg_date
+	from guestbook3
+	where no= #{no}
+]]>
+</select>
 
 </mapper>
 
