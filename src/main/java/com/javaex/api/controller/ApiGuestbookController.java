@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.javaex.service.GuestbookService;
@@ -45,6 +46,18 @@ public class ApiGuestbookController {
 	
 	@RequestMapping(value="/delete", method=RequestMethod.POST)
 	public void delete(@ModelAttribute GuestbookVo guestbookVo){
+		
+	}
+	
+	@ResponseBody
+	@RequestMapping(value="/delete2", method=RequestMethod.POST)
+	public int delete2(@RequestParam("no")String no, @RequestParam("password")String password){
+		GuestbookVo vo=new GuestbookVo();
+		vo.setNo(no);
+		vo.setPassword(password);
+		int del = guestbookService.delete2(vo);
+		return del;
+		
 		
 	}
 }

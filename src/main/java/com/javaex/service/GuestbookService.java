@@ -32,12 +32,28 @@ public class GuestbookService {
 
 	public GuestbookVo write(GuestbookVo guestbookVo) {
 		// insert
-		System.out.println("서비스" + guestbookVo.toString());
+		/*System.out.println("서비스" + guestbookVo.toString());*/
 		int no = GuestbookDao.insert2(guestbookVo);
-		System.out.println("서비스도착" + guestbookVo.toString());
+		/*System.out.println("서비스도착" + guestbookVo.toString());*/
 		GuestbookVo gvo = GuestbookDao.selectGuestBook(no);
 		System.out.println(gvo.toString());
 		// select
 		return gvo;
+	}
+	
+	public int delete2(GuestbookVo vo){
+		int del = GuestbookDao.delete2(vo);
+		if(del>0){
+			del= Integer.parseInt(vo.getNo());
+			return del;
+			
+		}else{
+			//
+			System.out.println("delete실패");
+			return 0;
+		}
+		
+		
+		
 	}
 }

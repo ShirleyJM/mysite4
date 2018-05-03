@@ -26,6 +26,9 @@ public class GuestbookDao {
 	}
 
 	
+	
+	
+	
 	public int insert2(GuestbookVo guestbookVo){
 		System.out.println("다오"+guestbookVo.toString());
 		sqlSession.insert("guestbook.insert2",guestbookVo);
@@ -35,6 +38,12 @@ public class GuestbookDao {
 	
 	public GuestbookVo selectGuestBook(int no){
 		return sqlSession.selectOne("guestbook.selectGuestBook",no);
+	}
+	
+	public int delete2(GuestbookVo vo){
+		return sqlSession.delete("guestbook.delete2",vo);
+		
+		
 	}
 
 }

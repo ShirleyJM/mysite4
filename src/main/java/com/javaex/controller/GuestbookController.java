@@ -48,8 +48,8 @@ public class GuestbookController {
 
 	@RequestMapping(value = "/delete", method = { RequestMethod.GET, RequestMethod.POST })
 	public String delete(@ModelAttribute GuestbookVo vo) {
-		System.out.println(vo.getNo() + vo.getPassword());
-		System.out.println("삭제");
+		/*System.out.println(vo.getNo() + vo.getPassword());
+		System.out.println("삭제");*/
 		GuestbookService.delete(vo);
 		return "redirect:/guestbook/listAll";
 	}

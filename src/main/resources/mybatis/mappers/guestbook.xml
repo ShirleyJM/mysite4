@@ -19,6 +19,7 @@
 	]]>
 </insert>
 
+
 <delete id="delete" parameterType="com.javaex.vo.GuestbookVo">
 	<![CDATA[
 	delete from guestbook3
@@ -31,7 +32,7 @@
 <![CDATA[
 	select no,name,password,content,reg_date
 	from guestbook3
-
+	order by no 
 ]]>
 </select>
 
@@ -40,8 +41,16 @@
 	select no,name,content,reg_date
 	from guestbook3
 	where no= #{no}
+
 ]]>
 </select>
+
+<delete id="delete2" parameterType="com.javaex.vo.GuestbookVo">
+<![CDATA[
+	delete from guestbook3
+	where no=#{no} and password=#{password}
+	]]>
+</delete>
 
 </mapper>
 
